@@ -1,26 +1,61 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TreeList from './component/TreeList';
+import { Item } from './interfaces';
+import './styles.css';
 
 const App: React.FC = () => {
+  let treeData: Item = {
+    name: 'My Tree',
+    children: [
+      { name: 'hello' },
+      { name: 'wat' },
+      {
+        name: 'child folder',
+        children: [
+          {
+            name: 'child folder',
+            children: [
+              { name: 'hello' },
+              { name: 'wat' }]
+          },
+          { name: 'hello' },
+          { name: 'wat' },
+          {
+            name: 'child folder',
+            children: [
+              { name: 'hello' },
+              { name: 'wat' }
+            ]
+          }
+        ]
+      }
+    ]
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TreeList
+      treeData={treeData}
+    />
   );
 }
+
+
+// class App extends React.Component<{}, { text: string }>{
+//   constructor(props: {}) {
+//     super(props)
+//     this.state = { text: 'initl string' }
+//     this.handleChange = this.handleChange.bind(this)
+//   }
+//   handleChange(val: string) {
+//     this.setState({ text: val })
+//   }
+//   render() {
+//     return (
+//       <EditableLabel
+//         text={this.state.text}
+//         onChange={this.handleChange}
+//       />
+//     )
+//   }
+// }
 
 export default App;

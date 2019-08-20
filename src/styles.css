@@ -1,0 +1,15 @@
+.bold {
+    font-weight: bold;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.display-hide {
+    display: none;
+}
+
+.itemAction{
+    margin-left: 5px;
+}
